@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<%- include('./partials/head.ejs') %>
+<body>
+         <%- include('./partials/navbar.ejs') %>
+        <div class="content"><!-- Área onde os usuários serão exibidos -->
+
+            <!--
+                Verifica se existe pelo menos um usuário no array "users".
+                Se users.length for maior que 0, entra no bloco abaixo.
+            -->
+            <% if (users.length > 0) { %>
+
+                <!--
+                    Percorre todos os usuários do array.
+                    A cada repetição, a variável "user"
+                    recebe um usuário da lista.
+                -->
+                <% users.forEach(user => { %>
+
+                    <!-- Exibe o nome e sobrenome do usuário -->
+                    <h3 class="title">
+                        <%= user.firstName %> <%= user.lastName %>
+                    </h3>
+
+                    <!-- Exibe o e-mail do usuário -->
+                    <p>
+                        <%= user.email %>
+                    </p>
+
+                <% }) %>
+
+            <% } else { %>
+
+                <!--
+                    Caso não exista nenhum usuário,
+                    exibe esta mensagem.
+                -->
+                <p>Não há usuários para exibir...</p>
+
+            <% } %>
+
+        </div>
+    </div>
+
+</body>
+</html>
+```
